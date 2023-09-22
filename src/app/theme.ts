@@ -1,12 +1,12 @@
-import { Theme } from "@emotion/react";
+import { Theme } from '@emotion/react';
 
 const theme: Theme = {
   colors: {
-    black: "#000",
-    white: "#fff",
+    black: '#000',
+    white: '#fff',
   },
   fonts: {
-    inter: "Inter",
+    inter: 'Inter',
   },
 };
 
