@@ -25,5 +25,14 @@ const apiRequest = async (options: RequestOptions) => {
 };
 
 export const getGotgamList = async (month: number) => {
-  return apiRequest({ endpoint: `/api/gotgaom?=${month}` });
+  return apiRequest({ endpoint: `/api/gotgom?=${month}` });
 };
+
+// // POST 예시
+// export const createGotgam = async (data: any) => {
+//     return apiRequest({
+//       endpoint: '/v1/gotgam',
+//       method: 'POST',
+//       body: JSON.stringify(data),
+//     });
+//   };
