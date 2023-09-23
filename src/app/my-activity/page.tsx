@@ -8,6 +8,7 @@ import Gotgam1 from '../../../public/gotgam1.svg';
 import Gotgam2 from '../../../public/gotgam2.svg';
 import Gotgam3 from '../../../public/gotgam3.svg';
 import Gotgam4 from '../../../public/gotgam4.svg';
+import Gotgam5 from '../../../public/gotgam5.svg';
 
 function MyActivityPage() {
   const today = dayjs();
@@ -36,6 +37,7 @@ function MyActivityPage() {
   ];
 
   const getGotgamSvg = (dailyStudy: GotgamList) => {
+    if (dailyStudy.stage === 0) return Gotgam4;
     if (dailyStudy.stage <= 3) return Gotgam1;
     if (dailyStudy.stage <= 6) return Gotgam2;
     return Gotgam3;
@@ -66,7 +68,7 @@ function MyActivityPage() {
             const currentDay = dayjs(monthData.targetMonth).date(index + 1);
             let SvgComponent;
             if (currentDay.isAfter(today)) {
-              SvgComponent = Gotgam4;
+              SvgComponent = Gotgam5;
             } else {
               const dayData = myActivities.find((d) => dayjs(d.date).isSame(currentDay, 'day'));
               if (dayData) {
@@ -81,7 +83,7 @@ function MyActivityPage() {
           })}
           {Array.from({ length: monthData.daysInMonth - myActivities.length }).map((_, index) => (
             <div key={`end-${index}`} className='w-10 h-10'>
-              <Image src={Gotgam4} alt='Gotgam' />
+              <Image src={Gotgam5} alt='Gotgam' />
             </div>
           ))}
         </div>
