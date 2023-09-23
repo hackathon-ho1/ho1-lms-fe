@@ -1,9 +1,9 @@
-export type Information = {
+type LectureInformationProps = {
   userId: string;
   courseName: string;
 };
 
-export default function Information({ userId, courseName }: Information) {
+export default function Information({ userId, courseName }: LectureInformationProps) {
   return (
     <div>
       <span>{userId}</span>
