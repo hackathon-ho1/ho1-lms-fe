@@ -10,9 +10,12 @@ export default function LectureDetail() {
   const [currentClicked, setCurrentClicked] = useState<{ courseId: number | null; chapterId: number | null }>({ courseId: null, chapterId: null });
 
   useEffect(() => {
-    getCourseDetail(1).then((res) => {
-      setCourses(res.data);
-    });
+    const courseId = window.location.pathname.split('/')[2];
+    if (courseId !== 'undefined') {
+      getCourseDetail(Number(courseId)).then((res) => {
+        setCourses(res.data);
+      });
+    }
   }, []);
 
   const router = useRouter();
