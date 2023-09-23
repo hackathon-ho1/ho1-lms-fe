@@ -50,6 +50,8 @@ export default function LecturePage() {
     return () => observer && observer.disconnect();
   }, [lastItemRef]);
 
+  console.log(list);
+
   return (
     <div>
       <Information />
