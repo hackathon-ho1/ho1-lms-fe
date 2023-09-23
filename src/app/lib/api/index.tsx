@@ -25,7 +25,7 @@ const apiRequest = async (options: RequestOptions) => {
 };
 
 export const getGotgamList = async (month: string) => {
-  return apiRequest({ endpoint: `/api/gotgam?=${month}`, method: 'GET' });
+  return apiRequest({ endpoint: `/api/gotgam?month=${month}`, method: 'GET' });
 };
 
 export const getGotgamDetail = async (date: string) => {
@@ -43,12 +43,3 @@ export const getCourseList = async (cursor: number) => {
 export const submitPractice = async (lectureId: number) => {
   return apiRequest({ endpoint: `/api/course/lecture/${lectureId}?userId=1`, method: 'POST' });
 };
-
-// // POST 예시
-// export const createGotgam = async (data: any) => {
-//     return apiRequest({
-//       endpoint: '/v1/gotgam',
-//       method: 'POST',
-//       body: JSON.stringify(data),
-//     });
-//   };
