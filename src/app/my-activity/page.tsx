@@ -102,7 +102,7 @@ function MyActivityPage() {
                 </Fragment>
               ))
             ) : (
-              <>학습한 강의가 없네요.</>
+              <>학습한 강의가 없네요. ㅠㅠ</>
             )}
           </div>
           <div className='w-full h-1/2 flex flex-col gap-1 overflow-y-auto p-2'>
