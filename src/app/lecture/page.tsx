@@ -49,14 +49,14 @@ export default function LecturePage() {
       <ul className='w-full h-auto grid gap-x-6 gap-y-24 grid-cols-3 px-5'>
         {list.map((item) => {
           return (
-            <li className='rounded-lg border-2 border-stone-300' key={item.courseId}>
-              <p className='text-xl'>{item.title}</p>
-              <p>{item.description}</p>
+            <li className='rounded-lg border border-stone-300' key={item.courseId}>
+              <p className='text-xl text-center'>{item.title}</p>
+              <p className='py-3 pl-3'>{item.description}</p>
               <div>
-                <div className='h-2 w-full bg-opacity-30 rounded-full mb-1 bg-slate-950'>
-                  <div style={{ width: `${item.progress}%` }} className='h-2 rounded-full bg-rose-600'></div>
+                <div className='h-2 w-full bg-opacity-30 rounded-full mb-1 bg-gray-400 drop-shadow-xl'>
+                  <div style={{ width: `${item.progress}%` }} className='h-2 rounded-full bg-red-500'></div>
                 </div>
-                <p className='text-end'>{item.progress}%완료</p>
+                <p className='text-end pb-2 pr-3'>{item.progress}% 완료</p>
               </div>
             </li>
           );
