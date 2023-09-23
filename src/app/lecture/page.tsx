@@ -1,6 +1,7 @@
-import Information from 'app/components/Infomation';
-import { Informain } from '../../../lectureSample.json';
-import LectureCard from 'app/components/LectureCard';
+'use client';
+
+import { useEffect, useState } from 'react';
+import { LectureList } from '../../../lectureSample.json';
 
 export type Course = {
   courseId: number;
@@ -9,14 +10,58 @@ export type Course = {
   progress: number;
 };
 
-// 컴포넌트 함수의 타입 지정은 따로 안하나요?
-// key,value 값이 같으면 생략해서 쓸 수 있지 않나..?
 export default function LecturePage() {
-  const { userId, courseName } = Informain[0];
+  const [list, setList] = useState<Course[]>(LectureList);
+  const [last, setLast] = useState<Course>({} as Course);
+
+  const [lastIntersectingImage, setLastIntersectingImage] = useState<HTMLDivElement | null>(null);
+
+  const getListThenSet = async () => {};
+
+  const onIntersect: IntersectionObserverCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        //뷰포트에 마지막 이미지가 들어오고, page값에 1을 더하여 새 fetch 요청을 보내게됨 (useEffect의 dependency배열에 page가 있음)
+        // 현재 타겟을 unobserve한다.
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  useEffect(() => {
+    console.log('page ? ', last);
+    getListThenSet();
+  }, [last]);
+
+  useEffect(() => {
+    //observer 인스턴스를 생성한 후 구독
+    let observer: IntersectionObserver;
+    if (lastIntersectingImage) {
+      observer = new IntersectionObserver(onIntersect, { threshold: 0.5 });
+      //observer 생성 시 observe할 target 요소는 불러온 이미지의 마지막아이템(randomImageList 배열의 마지막 아이템)으로 지정
+      observer.observe(lastIntersectingImage);
+    }
+    return () => observer && observer.disconnect();
+  }, [lastIntersectingImage]);
+
   return (
     <div>
-      <Information userId={userId} courseName={courseName} />
-      <LectureCard />
+      <ul className='w-full h-auto grid gap-x-6 gap-y-24 grid-cols-3 px-5'>
+        {list.map((item) => {
+          return (
+            <li className='rounded-lg border-2 border-stone-300' key={item.courseId}>
+              <p className='text-xl'>{item.title}</p>
+              <p>{item.description}</p>
+              <div>
+                <div className='h-2 w-full bg-opacity-30 rounded-full mb-1 bg-slate-950'>
+                  <div style={{ width: `${item.progress}%` }} className='h-2 rounded-full bg-rose-600'></div>
+                </div>
+                <p className='text-end'>{item.progress}%완료</p>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
