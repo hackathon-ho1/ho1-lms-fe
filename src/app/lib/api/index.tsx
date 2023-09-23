@@ -33,7 +33,7 @@ export const getGotgamDetail = async (date: string) => {
 };
 
 export const getCourseDetail = async (courseId: number) => {
-  return apiRequest({ endpoint: `/api/course/${1}?userId=1`, method: 'GET' });
+  return apiRequest({ endpoint: `/api/course/${courseId}?userId=1`, method: 'GET' });
 };
 
 export const getCourseList = async (cursor: number) => {
