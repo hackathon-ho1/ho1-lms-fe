@@ -85,7 +85,7 @@ export default function LectureDetail() {
           </div>
         ))}
       </div>
-      <div className='w-[75%] h-full bg-gray-300' />
+      <div className='w-[] h-full bg-gray-300' />
     </div>
   );
 }
