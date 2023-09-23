@@ -21,7 +21,7 @@ export default function SiderBar() {
     <div className='w-[120px] h-[100vh] bg-[#bbb2f1] flex items-start justify-center'>
       <ul
         className='w-full h-2/5 flex flex-col justify-center items-center
-      font-semibold text-lg gap-16 text-center
+      font-semibold text-lg gap-16 text-center min-h-[350px]
       '
       >
         {sideBarButtons.map((item) => (
