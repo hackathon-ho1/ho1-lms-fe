@@ -19,7 +19,7 @@ function MyActivityPage() {
     daysInMonth: dayjs().daysInMonth(),
   });
   const [myActivities, setMyActivities] = useState<number[]>([]);
-  const [myActivity, setMyActivity] = useState<GotgamList>();
+  const [myActivity, setMyActivity] = useState<AchievedLectureList[]>([]);
 
   useEffect(() => {
     const monthNumber = monthData.targetMonth.month();
@@ -31,7 +31,9 @@ function MyActivityPage() {
     getGotgamDetail(String(monthData.targetDate)).then((res) => {
       setMyActivity(res.data);
     });
-  }, [monthData]);
+  }, [monthData.targetDate]);
+
+  console.log(myActivity);
 
   const weekdaysData = [
     { day: '일', color: 'text-red-500' },
@@ -114,10 +116,10 @@ function MyActivityPage() {
       <div className='w-1/2 h-full flex justify-center items-center'>
         <div className='w-full h-2/3 min-w-[400px] min-h-[300px] p-5 flex flex-col gap-3 shadow bg-white rounded-md'>
           <div className='font-bold text-xl block mb-3'>활동내역</div>
-          <div className='w-full h-1/2 flex flex-col gap-1 overflow-y-auto p-2'>
+          <div className='w-full h-1full flex flex-col gap-1 overflow-y-auto p-2'>
             <p className='mb-3 font-semibold'>학습한 강의 목록</p>
-            {myActivity?.achievedLectureList && myActivity?.achievedHelpList.length > 0 ? (
-              myActivity?.achievedLectureList.map((lecture) => (
+            {myActivity && myActivity?.length > 0 ? (
+              myActivity?.map((lecture) => (
                 <Fragment>
                   <p>- {lecture.courseTitle}</p>
                   <p className='pl-4'>{lecture.chatperTitle}</p>
@@ -126,18 +128,6 @@ function MyActivityPage() {
               ))
             ) : (
               <>학습한 강의가 없네요. ㅠㅠ</>
-            )}
-          </div>
-          <div className='w-full h-1/2 flex flex-col gap-1 overflow-y-auto p-2 '>
-            <p className='mb-3 font-semibold'>내가 도와준 문제</p>
-            {myActivity?.achievedHelpList && myActivity?.achievedHelpList.length > 0 ? (
-              myActivity?.achievedHelpList.map((helpList) => (
-                <Fragment>
-                  <p className='pl-2'>{helpList.questionTitle}</p>
-                </Fragment>
-              ))
-            ) : (
-              <>도와준 문제가 없어요!</>
             )}
           </div>
         </div>

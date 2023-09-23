@@ -29,7 +29,6 @@ export default function LecturePage() {
   }, [cursor]);
 
   const router = useRouter();
-  const observer = useRef<IntersectionObserver | null>(null);
   const [lastItemRef, setLastItemRef] = useState<HTMLLIElement | null>(null);
 
   const onIntersect: IntersectionObserverCallback = (entries, observer) => {
@@ -49,8 +48,6 @@ export default function LecturePage() {
     }
     return () => observer && observer.disconnect();
   }, [lastItemRef]);
-
-  console.log(list);
 
   return (
     <div>
