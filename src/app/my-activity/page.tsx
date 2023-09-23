@@ -93,21 +93,29 @@ function MyActivityPage() {
           <div className='font-bold text-xl block mb-3'>활동내역</div>
           <div className='w-full h-1/2 flex flex-col gap-1 overflow-y-auto p-2'>
             <p className='mb-3 font-semibold'>학습한 강의 목록</p>
-            {myActivity?.achievedLectureList.map((lecture) => (
-              <Fragment>
-                <p>- {lecture.courseTitle}</p>
-                <p className='pl-4'>{lecture.chatperTitle}</p>
-                <p className='pl-6'>{lecture.lectureTitle}</p>
-              </Fragment>
-            ))}
+            {myActivity?.achievedLectureList && myActivity?.achievedHelpList.length > 0 ? (
+              myActivity?.achievedLectureList.map((lecture) => (
+                <Fragment>
+                  <p>- {lecture.courseTitle}</p>
+                  <p className='pl-4'>{lecture.chatperTitle}</p>
+                  <p className='pl-6'>{lecture.lectureTitle}</p>
+                </Fragment>
+              ))
+            ) : (
+              <>학습한 강의가 없네요.</>
+            )}
           </div>
           <div className='w-full h-1/2 flex flex-col gap-1 overflow-y-auto p-2'>
             <p className='mb-3 font-semibold'>내가 도와준 문제</p>
-            {myActivity?.achievedHelpList.map((helpList) => (
-              <Fragment>
-                <p className='pl-2'>{helpList.questionTitle}</p>
-              </Fragment>
-            ))}
+            {myActivity?.achievedHelpList && myActivity?.achievedHelpList.length > 0 ? (
+              myActivity?.achievedHelpList.map((helpList) => (
+                <Fragment>
+                  <p className='pl-2'>{helpList.questionTitle}</p>
+                </Fragment>
+              ))
+            ) : (
+              <>도와준 문제가 없어요!</>
+            )}
           </div>
         </div>
       </div>

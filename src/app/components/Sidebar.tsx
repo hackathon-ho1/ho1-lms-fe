@@ -18,7 +18,7 @@ export default function SiderBar() {
   ];
 
   return (
-    <div className='w-[100px] h-[100vh] bg-[#bbb2f1] flex items-start justify-center'>
+    <div className='w-[100px] min-w-[100px] h-[100vh] bg-[#bbb2f1] flex items-start justify-center'>
       <ul
         className='w-full h-2/5 flex flex-col justify-center items-center
       font-semibold text-lg gap-16 text-center min-h-[350px]
