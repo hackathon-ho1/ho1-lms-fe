@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { LectureList } from '../../../lectureSample.json';
 import { useRouter } from 'next/navigation';
+import Information from 'app/components/Infomation';
 
 export type Course = {
   courseId: number;
@@ -45,6 +46,7 @@ export default function LecturePage() {
 
   return (
     <div>
+      <Information />
       <ul className='w-full h-full grid gap-x-6 gap-y-24 grid-cols-3 px-5 max-h-[90vh] overflow-y-auto p-3'>
         {list.map((item) => {
           return (

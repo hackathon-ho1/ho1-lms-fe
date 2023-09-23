@@ -47,7 +47,7 @@ export default function PracticePage() {
       </div>
       <div className='w-full h-20 flex justify-end items-center'>
         <button className='w-24 h-10 bg-white mr-10 rounded font-bold' onClick={submit}>
-          제출
+          제출하기
         </button>
       </div>
     </>
