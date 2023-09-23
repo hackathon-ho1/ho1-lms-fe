@@ -5,7 +5,12 @@ interface MyActivityLayoutProps {
 }
 
 function MyActivityLayout({ children }: MyActivityLayoutProps) {
-  return <div>{children}</div>;
+  return (
+    <section className='flex flex-col justify-start items-start w-full h-full'>
+      <header className='w-full h-20 bg-green-500'>header</header>
+      <div className='p-5 w-full h-full'>{children}</div>
+    </section>
+  );
 }
 
 export default MyActivityLayout;
