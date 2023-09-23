@@ -7,6 +7,7 @@ import dummy from '../../../sample.json';
 import Gotgam1 from '../../../public/gotgam1.svg';
 import Gotgam2 from '../../../public/gotgam2.svg';
 import Gotgam3 from '../../../public/gotgam3.svg';
+import Gotgam4 from '../../../public/gotgam4.svg';
 
 function MyActivityPage() {
   const today = dayjs();
@@ -61,20 +62,27 @@ function MyActivityPage() {
           {Array.from({ length: monthData.startDay }).map((_, index) => (
             <div key={`start-${index}`} className='w-10 h-10 bg-transparent' />
           ))}
-          {Array.from({ length: monthData.daysInMonth }).map((value, index) => {
-            const dayData = myActivities.find((d) => dayjs(d.date).date() === index + 1 && dayjs(d.date).month() === monthData.targetMonth.month());
+          {myActivities.map((value: GotgamList, index: number) => {
+            const currentDay = dayjs(monthData.targetMonth).date(index + 1);
             let SvgComponent;
-            if (dayData && !dayjs(dayData.date).isAfter(today)) {
-              SvgComponent = getGotgamSvg(dayData);
+            if (currentDay.isAfter(today)) {
+              SvgComponent = Gotgam4;
+            } else {
+              const dayData = myActivities.find((d) => dayjs(d.date).isSame(currentDay, 'day'));
+              if (dayData) {
+                SvgComponent = getGotgamSvg(dayData);
+              }
             }
             return (
-              <button key={`day-${index}`} className={`w-10 h-10 rounded opacity-90`} onClick={() => handleClick(dayData as GotgamList)}>
+              <button key={`day-${index}`} className={`w-10 h-10 rounded opacity-90`} onClick={() => handleClick(value)}>
                 {SvgComponent && <Image src={SvgComponent} alt='Gotgam' />}
               </button>
             );
           })}
-          {Array.from({ length: 6 - ((monthData.daysInMonth + monthData.startDay - 1) % 7) }).map((_, index) => (
-            <div key={`end-${index}`} className='w-10 h-10 bg-gray-200' />
+          {Array.from({ length: monthData.daysInMonth - myActivities.length }).map((_, index) => (
+            <div key={`end-${index}`} className='w-10 h-10'>
+              <Image src={Gotgam4} alt='Gotgam' />
+            </div>
           ))}
         </div>
       </div>
