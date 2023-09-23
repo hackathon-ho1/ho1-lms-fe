@@ -1,13 +1,19 @@
 'use client';
 
-import React, { useState } from 'react';
-import dummy from '../../../../lecture-sample.json';
-import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { getCourseDetail } from 'app/lib/api';
 
 export default function LectureDetail() {
-  const [courses, setCourses] = useState<Course[]>(dummy);
+  const [courses, setCourses] = useState<Course>();
   const [expandedChapterIds, setExpandedChapterIds] = useState<number[]>([]);
   const [currentClicked, setCurrentClicked] = useState<{ courseId: number | null; chapterId: number | null }>({ courseId: null, chapterId: null });
+
+  useEffect(() => {
+    getCourseDetail(1).then((res) => {
+      setCourses(res.data);
+    });
+  }, []);
 
   const router = useRouter();
 
@@ -33,8 +39,8 @@ export default function LectureDetail() {
   return (
     <div className='w-full h-full flex flex-row justify-start items-start bg-[#E5E7EB] '>
       <div className='w-[25%] h-full bg-gray-200 max-w-[400px] min-w-[300px] flex flex-col justify-center items-center text-white'>
-        {courses.map((course) => (
-          <div key={course.courseId} className='w-full'>
+        {courses?.chapters.map((course) => (
+          <div key={course.chapterId} className='w-full'>
             <div className='w-full h-16 bg-[#171717] border border-[#464646] flex justify-between items-center px-3 text-sm'>
               <div
                 className={`w-5 h-5 rounded-full border-2
@@ -43,44 +49,44 @@ export default function LectureDetail() {
               >
                 {course.progress === 100 && '✓'}
               </div>
-              <div>{course.title}</div>
+              <div>{course.chapterTitle}</div>
               <div>
                 <span className='mr-2'>
-                  {course.chapters.filter((chapter) => chapter.lectures.some((lecture) => lecture.isDone)).length}/{course.chapters.length}
+                  {course.doneCount} / {course.lectureCount}
                 </span>
-                <button onClick={() => handleToggle(course.courseId)}>{expandedChapterIds.includes(course.courseId) ? '▲' : '▼'}</button>
+                <button onClick={() => handleToggle(course.chapterId)}>{expandedChapterIds.includes(course.chapterId) ? '▲' : '▼'}</button>
               </div>
             </div>
-            {expandedChapterIds.includes(course.courseId) && (
+            {expandedChapterIds.includes(course.chapterId) && (
               <div>
-                {course.chapters.map((chapter) => (
+                {course.lectures.map((lecture) => (
                   <button
-                    key={chapter.chapterId}
+                    key={lecture.lectureId}
                     className='w-full h-16 bg-[#232325] border border-[#464646] flex justify-between items-center px-3 text-sm'
-                    onClick={() => handleChapterClick(course.courseId, chapter.chapterId)}
+                    onClick={() => handleChapterClick(course.chapterId, lecture.lectureId)}
                   >
                     <div
                       className={`rounded-full border-2
                               ${
-                                currentClicked.courseId === course.courseId && currentClicked.chapterId === chapter.chapterId
+                                currentClicked.courseId === course.chapterId && currentClicked.chapterId === lecture.lectureId
                                   ? 'w-5 h-5 border-blue-500 '
-                                  : chapter.progress === 100
+                                  : lecture.isDone
                                   ? ' w-5 h-5 border-yellow-400 '
                                   : 'w-5 h-5 border-white'
                               }
                             text-center flex justify-center items-center`}
                     >
-                      {chapter.progress === 100 && currentClicked.courseId === course.courseId && currentClicked.chapterId === chapter.chapterId ? (
+                      {course.progress === 100 && currentClicked.courseId === course.chapterId && currentClicked.chapterId === lecture.lectureId ? (
                         <div className='w-2 h-2 rounded-full bg-blue-500' />
-                      ) : chapter.progress === 100 ? (
+                      ) : lecture.isDone ? (
                         <div className='w-2 h-2 rounded-full bg-yellow-400' />
-                      ) : currentClicked.courseId === course.courseId && currentClicked.chapterId === chapter.chapterId ? (
+                      ) : currentClicked.courseId === course.chapterId && currentClicked.chapterId === lecture.lectureId ? (
                         <div className='w-2 h-2 rounded-full bg-blue-500' />
                       ) : (
                         <></>
                       )}
                     </div>
-                    <div className='flex justify-center items-center w-[94%]'>{chapter.title}</div>
+                    <div className='flex justify-center items-center w-[94%]'>{lecture.lectureTitle}</div>
                   </button>
                 ))}
               </div>

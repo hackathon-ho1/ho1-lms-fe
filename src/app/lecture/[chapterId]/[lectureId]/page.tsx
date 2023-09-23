@@ -1,10 +1,21 @@
 'use client';
 
 import { submitPractice } from 'app/lib/api';
+import { useRouter } from 'next/navigation';
 
 export default function PracticePage() {
+  const router = useRouter();
+
   const submit = () => {
-    submitPractice(1);
+    const lectureId = window.location.href.split('/')[5];
+    submitPractice(Number(lectureId)).then((res) => {
+      if (res.statusCode === 200) {
+        alert('제출되었습니다.');
+        router.push('/my-activity');
+      } else {
+        alert('제출에 실패했습니다.');
+      }
+    });
   };
 
   return (
