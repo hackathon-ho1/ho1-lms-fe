@@ -1,12 +1,7 @@
-import { User } from '../../../lectureSample.json';
-import Information from 'app/components/Infomation';
-
 export default function LectureLayout({ children }: { children: React.ReactNode }) {
-  const { userId, courseName } = User[0];
   return (
-    <div className='flex flex-col w-full h-auto'>
-      <Information userId={userId} courseName={courseName} />
-      <main>{children}</main>
-    </div>
+    <section className='flex flex-col justify-start items-start w-full h-full'>
+      <div className='w-full h-full'>{children}</div>
+    </section>
   );
 }

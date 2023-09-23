@@ -1,6 +1,5 @@
 type GotgamList = {
-  date: string;
-  stage: number;
+  achiecedAt: string;
   achievedLectureList: AchievedLectureList[];
   achievedHelpList: AchievedHelpList[];
 };
@@ -21,23 +20,25 @@ type AchievedHelpList = {
 
 type Course = {
   courseId: number;
-  title: string;
-  description: string;
-  progress: number;
+  courseTitle: string;
+  courseDescription: string;
+  courseProgress: number;
   chapters: Chapter[];
 };
 
 type Chapter = {
+  doneCount: number;
+  lectureCount: number;
   chapterId: number;
-  title: string;
+  chapterTitle: string;
   progress: number;
   lectures: Lecture[];
 };
 
 type Lecture = {
-  lectureId: string;
-  title: string;
-  description: string;
+  lectureId: number;
+  lectureTitle: string;
+  lectureDescription: string;
   videoURL: string;
   isDone: boolean;
 };
