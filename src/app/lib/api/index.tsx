@@ -28,6 +28,10 @@ export const getGotgamList = async (month: number) => {
   return apiRequest({ endpoint: `/api/gotgom?=${month}` });
 };
 
+export const submitPractice = async (lectureId: number) => {
+  return apiRequest({ endpoint: `api/course/lecture/:${lectureId}?userId=1`, method: 'POST' });
+};
+
 // // POST 예시
 // export const createGotgam = async (data: any) => {
 //     return apiRequest({

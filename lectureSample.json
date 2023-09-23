@@ -1,0 +1,214 @@
+{
+  "User": [
+    {
+      "userId": "조영은",
+      "courseName": "학습하기"
+    }
+  ],
+  "LectureList": [
+    {
+      "courseId": 1,
+      "title": "Next.js 개념정리",
+      "description": "nextjs에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 2,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 99
+    },
+    {
+      "courseId": 3,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 4,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 5,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 6,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 1,
+      "title": "Next.js 개념정리",
+      "description": "nextjs에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 2,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 99
+    },
+    {
+      "courseId": 3,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 4,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 5,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 6,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 1,
+      "title": "Next.js 개념정리",
+      "description": "nextjs에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 2,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 99
+    },
+    {
+      "courseId": 3,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 4,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 5,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 6,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 1,
+      "title": "Next.js 개념정리",
+      "description": "nextjs에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 2,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 99
+    },
+    {
+      "courseId": 3,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 4,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 5,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 6,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 3,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 4,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 5,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 6,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 1,
+      "title": "Next.js 개념정리",
+      "description": "nextjs에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 2,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 99
+    },
+    {
+      "courseId": 3,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 33
+    },
+    {
+      "courseId": 4,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 5,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    },
+    {
+      "courseId": 6,
+      "title": "node.js 개념정리",
+      "description": "node.js에 대해 알아보아요",
+      "progress": 55
+    }
+  ]
+}
