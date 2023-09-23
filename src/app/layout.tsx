@@ -1,9 +1,13 @@
+import SiderBar from './components';
 import './globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='ko'>
-      <body>{children}</body>
+      <body>
+        <SiderBar />
+        {children}
+      </body>
     </html>
   );
 }
