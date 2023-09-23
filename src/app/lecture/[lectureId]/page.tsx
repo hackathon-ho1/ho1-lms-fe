@@ -2,11 +2,14 @@
 
 import React, { useState } from 'react';
 import dummy from '../../../../lecture-sample.json';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function LectureDetail() {
   const [courses, setCourses] = useState<Course[]>(dummy);
   const [expandedChapterIds, setExpandedChapterIds] = useState<number[]>([]);
   const [currentClicked, setCurrentClicked] = useState<{ courseId: number | null; chapterId: number | null }>({ courseId: null, chapterId: null });
+
+  const router = useRouter();
 
   const toggleArrayValue = <T,>(array: T[], value: T, setArray: React.Dispatch<React.SetStateAction<T[]>>) => {
     if (array.includes(value)) {
@@ -85,7 +88,17 @@ export default function LectureDetail() {
           </div>
         ))}
       </div>
-      <div className='w-[] h-full bg-gray-300' />
+      <div className='w-full h-full bg-gray-300 flex flex-row justify-end items-end'>
+        <button
+          className='w-24 h-10 bg-white mb-10 mr-10 rounded font-bold'
+          disabled={currentClicked.courseId === null || currentClicked.chapterId === null}
+          onClick={() => {
+            router.push(`/lecture/${currentClicked.courseId}/${currentClicked.chapterId}`);
+          }}
+        >
+          실습하기
+        </button>
+      </div>
     </div>
   );
 }

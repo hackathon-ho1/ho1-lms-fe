@@ -49,7 +49,7 @@ function MyActivityPage() {
 
   return (
     <div className='w-full h-full flex flex-row justify-center items-center min-w-[800px] min-h-[800px] gap-4'>
-      <div className='w-1/2 h-2/3 flex flex-col gap-10 justify-center items-center shadow'>
+      <div className='w-1/2 h-2/3 flex flex-col gap-10 justify-center items-center shadow bg-white rounded-md'>
         <div className='flex flex-row justify-start items-center gap-3'>
           <button> 이전 달 </button>
           <p className='font-semibold text-2xl'>{monthData.targetMonth.month() + 1}월</p>
@@ -89,7 +89,7 @@ function MyActivityPage() {
         </div>
       </div>
       <div className='w-1/2 h-full flex justify-center items-center'>
-        <div className='w-full h-2/3 min-w-[400px] min-h-[300px] p-5 flex flex-col gap-3 shadow'>
+        <div className='w-full h-2/3 min-w-[400px] min-h-[300px] p-5 flex flex-col gap-3 shadow bg-white rounded-md'>
           <div className='font-bold text-xl block mb-3'>활동내역</div>
           <div className='w-full h-1/2 flex flex-col gap-1 overflow-y-auto p-2'>
             <p className='mb-3 font-semibold'>학습한 강의 목록</p>
@@ -105,7 +105,7 @@ function MyActivityPage() {
               <>학습한 강의가 없네요. ㅠㅠ</>
             )}
           </div>
-          <div className='w-full h-1/2 flex flex-col gap-1 overflow-y-auto p-2'>
+          <div className='w-full h-1/2 flex flex-col gap-1 overflow-y-auto p-2 '>
             <p className='mb-3 font-semibold'>내가 도와준 문제</p>
             {myActivity?.achievedHelpList && myActivity?.achievedHelpList.length > 0 ? (
               myActivity?.achievedHelpList.map((helpList) => (
