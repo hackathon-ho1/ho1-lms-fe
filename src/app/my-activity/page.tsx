@@ -31,9 +31,7 @@ function MyActivityPage() {
     getGotgamDetail(String(monthData.targetDate)).then((res) => {
       setMyActivity(res.data);
     });
-  }, [monthData.targetDate]);
-
-  console.log(myActivity);
+  }, [monthData.targetDate, monthData.targetMonth, monthData.startDay, monthData.daysInMonth]);
 
   const weekdaysData = [
     { day: '일', color: 'text-red-500' },
